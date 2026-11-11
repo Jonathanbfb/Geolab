@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GeoLab • Painel de dispositivos</title><link rel="stylesheet" href="style.css">
+  <script src="js/config.js"></script><script src="js/storage.js" defer></script><script src="js/mapa.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><div><span class="eyebrow">MAPAS • JAVASCRIPT • DOM</span><h1>GeoLab <span>Dispositivos</span></h1></div><button id="sair" class="secondary">Sair</button></header>
+  <main class="layout">
+    <aside class="panel">
+      <section><h2 id="tituloForm">Cadastrar dispositivo</h2><p class="hint">Clique no mapa para preencher latitude e longitude.</p>
+      <form id="dispositivoForm">
+        <input id="idEdicao" type="hidden">
+        <label for="tag">Identificação / tag</label><input id="tag" maxlength="40" required placeholder="EX.: SENSOR-001">
+        <label for="tipo">Tipo</label><select id="tipo" required><option value="sensor">Sensor</option><option value="camera">Câmera</option><option value="gateway">Gateway</option></select>
+        <label for="descricao">Descrição</label><input id="descricao" maxlength="100" placeholder="Ex.: Temperatura do galpão A">
+        <div class="duas-colunas"><div><label for="lat">Latitude</label><input id="lat" type="number" step="any" min="-90" max="90" required placeholder="-3.1303"></div><div><label for="lng">Longitude</label><input id="lng" type="number" step="any" min="-180" max="180" required placeholder="-60.0234"></div></div>
+        <label for="status">Status simulado</label><select id="status"><option value="online">Online</option><option value="offline">Offline</option><option value="manutencao">Manutenção</option></select>
+        <button id="salvar" type="submit">Cadastrar dispositivo</button><button class="secondary" id="cancelar" type="button" hidden>Cancelar edição</button>
+      </form><p id="mensagem" class="mensagem" role="status" aria-live="polite">Preencha os dados ou selecione um ponto no mapa.</p></section>
+      <section class="lista-secao"><div class="titulo-linha"><h2>Dispositivos <span id="contador">(0)</span></h2><button id="exemplo" class="secondary pequeno">Carregar exemplos</button></div>
+        <label for="busca">Pesquisar por tag ou descrição</label><input id="busca" type="search" placeholder="Pesquisar dispositivos...">
+        <label for="filtro">Filtrar status</label><select id="filtro"><option value="todos">Todos</option><option value="online">Online</option><option value="offline">Offline</option><option value="manutencao">Manutenção</option></select>
+        <div class="acoes"><button id="mostrarTodos" class="secondary" type="button">Mostrar todos</button><button id="exportar" class="secondary" type="button">Exportar JSON</button></div>
+        <div class="acoes"><button id="limpar" class="danger" type="button">Limpar dados</button></div>
+        <ul id="lista" class="lista"></ul>
+      </section>
+    </aside>
+    <section class="map-area"><div class="map-title"><strong>Mapa de Manaus</strong><span class="legenda"><i class="dot online"></i> Online <i class="dot offline"></i> Offline <i class="dot manutencao"></i> Manutenção</span></div><div id="mapa" aria-label="Mapa interativo dos dispositivos"></div><div id="mapaErro" class="map-error" hidden></div></section>
+  </main>
+</body>
+</html>

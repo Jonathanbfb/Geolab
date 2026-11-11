@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GeoLab • Acesso</title><link rel="stylesheet" href="style.css">
+  <script src="js/auth.js" defer></script>
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <p class="eyebrow">LABORATÓRIO • COMPUTAÇÃO GRÁFICA</p>
+    <h1>GeoLab <span>Dispositivos</span></h1>
+    <p>Entre para gerenciar dispositivos simulados e visualizar suas posições no Google Maps.</p>
+    <form id="loginForm">
+      <label for="usuario">Usuário</label><input id="usuario" autocomplete="username" required placeholder="aluno">
+      <label for="senha">Senha</label><input id="senha" type="password" autocomplete="current-password" required placeholder="123456">
+      <button type="submit">Entrar no painel</button>
+      <p id="erroLogin" class="erro" role="alert" aria-live="polite"></p>
+    </form>
+    <p class="nota">Credenciais didáticas: <strong>aluno / 123456</strong>. Login simulado: não protege dados reais.</p>
+  </main>
+</body>
+</html>
